@@ -1,20 +1,162 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Launch Broker</title>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <h1>Launch Broker</h1>
-
-    <p>alphabay</p>
-
-    <ul> <!-- changed to list in the tutorial -->
-      <li>launch</li>
-      <li>broker</li>
-      <li>hi alphabay</li>
-    </ul>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Your Coin - Token Launch Services</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .form-section {
+            flex: 2;
+            padding-right: 20px;
+        }
+        .preview-section {
+            flex: 1;
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #ffffff;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            background-color: #333333;
+            border: 1px solid #555555;
+            color: #ffffff;
+            border-radius: 4px;
+        }
+        .upload-area {
+            border: 2px dashed #555555;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .upload-area p {
+            margin: 0;
+            color: #aaaaaa;
+        }
+        .file-specs {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .file-specs div {
+            flex: 1;
+            padding: 10px;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .note {
+            font-size: 0.8em;
+            color: #aaaaaa;
+            margin-top: 10px;
+        }
+        .social-links {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1>Create new coin</h1>
+            <p>Coin details<br>Choose carefully, these can't be changed once the coin is created</p>
+            
+            <form action="/submit" method="post" enctype="multipart/form-data">
+                <label for="coin-name">Coin name</label>
+                <input type="text" id="coin-name" name="coin-name" placeholder="Name your coin">
+                
+                <label for="ticker">Ticker</label>
+                <input type="text" id="ticker" name="ticker" placeholder="Add a coin ticker (e.g. DOGE)">
+                
+                <label for="description">Description (Optional)</label>
+                <textarea id="description" name="description" placeholder="Write a short description" rows="4"></textarea>
+                
+                <div class="social-links">
+                    <label>Add social links (Optional)</label>
+                    <!-- For basic, add simple inputs; in real site, make dynamic -->
+                    <input type="text" name="twitter" placeholder="Twitter link">
+                    <input type="text" name="telegram" placeholder="Telegram link">
+                    <input type="text" name="website" placeholder="Website link">
+                </div>
+                
+                <div class="upload-area">
+                    <p>Select video or image to upload<br>or drag and drop it here</p>
+                    <input type="file" id="file-upload" name="file-upload" accept="image/jpeg, image/gif, image/png, video/mp4" style="display: none;">
+                    <button type="button" onclick="document.getElementById('file-upload').click();">Select file</button>
+                </div>
+                
+                <div class="file-specs">
+                    <div>
+                        <h4>File size and type</h4>
+                        <ul>
+                            <li>Image - max 15mb. '.jpg', '.gif' or '.png' recommended</li>
+                            <li>Video - max 30mb. '.mp4' recommended</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Resolution and aspect ratio</h4>
+                        <ul>
+                            <li>Image - min. 1000x1000px, 1:1 square recommended</li>
+                            <li>Video - 16:9 or 9:16, 1080p+ recommended</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <label>Add banner (Optional)</label>
+                    <input type="file" name="banner-upload" accept="image/jpeg, image/gif, image/png">
+                </div>
+                
+                <p class="note">Coin data (social links, banner, etc) can only be added now, and can't be changed or edited after creation</p>
+                
+                <button type="submit">Create coin</button>
+            </form>
+            
+            <p class="note">Note: This form submits your coin details to our marketing agency for review. We'll contact you to discuss token launch services.</p>
+        </div>
+        
+        <div class="preview-section">
+            <h2>Preview</h2>
+            <p>A preview of how the coin will look like</p>
+            <!-- In a real site, use JS to update preview based on inputs -->
+            <div style="background-color: #333333; height: 200px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                <p>Your Coin Preview Here</p>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
+```
